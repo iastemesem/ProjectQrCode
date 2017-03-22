@@ -21,7 +21,8 @@ import java.net.URL;
  * Created by Gianfranco on 22/03/2017.
  */
 
-public class FragmentWebView extends Fragment {
+public class FragmentWebView extends android.support.v4.app.Fragment {
+
     private final String URL = "url";
     private ProgressDialog progressDialog;
 
