@@ -45,19 +45,6 @@ public class FragmentBtnCamera extends android.support.v4.app.Fragment implement
     @Override
     public void onClick(View v) {
 
-/*        try {
-
-            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-            intent.putExtra("SCAN_MODE", "QR_CODE_MODE"); // "PRODUCT_MODE for bar codes
-            ((MainActivity)v.getContext()).startActivityForResult(intent, 0);
-
-        } catch (Exception e) {
-
-            Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
-            Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
-            v.getContext().startActivity(marketIntent);
-        }*/
-
         IntentIntegrator integrator = new IntentIntegrator((MainActivity)v.getContext());
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
         integrator.setOrientationLocked(true);
@@ -66,7 +53,6 @@ public class FragmentBtnCamera extends android.support.v4.app.Fragment implement
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(true);
         integrator.forSupportFragment(FragmentBtnCamera.this).initiateScan();
-//        integrator.initiateScan();
 
     }
 
@@ -90,7 +76,6 @@ public class FragmentBtnCamera extends android.support.v4.app.Fragment implement
                 ft.commit();
             }
         } else {
-            // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
         }
     }

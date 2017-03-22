@@ -12,10 +12,6 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.Proxy;
-import java.net.URL;
 
 /**
  * Created by Gianfranco on 22/03/2017.
@@ -39,7 +35,7 @@ public class FragmentWebView extends android.support.v4.app.Fragment {
         myWebView.getSettings().setLoadsImagesAutomatically(true);
         myWebView.setWebViewClient(new WebViewClient());
 
-        if (shortenedUrl.contains("http://q-r.to/") || shortenedUrl.contains(".pdf")){
+        if (shortenedUrl.contains("http://q-r.to/") || shortenedUrl.contains(".pdf")){ //For PDF
             myWebView.loadUrl("http://drive.google.com/viewerng/viewer?embedded=true&url="+shortenedUrl);
        }else {myWebView.loadUrl(shortenedUrl);}
         return v;
