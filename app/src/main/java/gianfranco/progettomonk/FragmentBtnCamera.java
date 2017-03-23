@@ -1,18 +1,15 @@
 package gianfranco.progettomonk;
 
-import android.app.Fragment;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -45,10 +42,10 @@ public class FragmentBtnCamera extends android.support.v4.app.Fragment implement
     @Override
     public void onClick(View v) {
 
-        IntentIntegrator integrator = new IntentIntegrator((MainActivity)v.getContext());
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-        integrator.setOrientationLocked(true);
+        IntentIntegrator integrator = new IntentIntegrator((AppCompatActivity)getContext());
         integrator.setPrompt("Scan");
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.setOrientationLocked(false);
         integrator.setCameraId(0);
         integrator.setBeepEnabled(false);
         integrator.setBarcodeImageEnabled(true);

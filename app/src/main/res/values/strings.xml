@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ProgettoMonk</string>
+    <string name="register"> Register </string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="username">Username</string>
+    <string name="login_register">No account yet? Create one</string>
+    <string name="name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="register_login">Already a member? Login</string>
+    <string name="email">E-mail</string>
 </resources>
