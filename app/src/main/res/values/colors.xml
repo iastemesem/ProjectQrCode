@@ -5,4 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="white"> #FFFFFF </color>
     <color name="black">#000000</color>
+    <color name="blu"> #3560a4 </color>
+    <color name="giallo"> #ffe404  </color>
+    <color name="grigio">#646262</color>
 </resources>

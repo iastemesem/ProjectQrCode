@@ -2,44 +2,77 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:paddingTop="30dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blu" android:gravity="center"
+        android:paddingTop="30dp">
+        <ImageView
+            android:layout_width="187dp"
+            android:layout_height="112dp"
+            android:src="@drawable/ic_logo_qrcode2"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp" />
+
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:paddingLeft="24dp"
     android:paddingRight="24dp">
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_logo_qrcode"
-        android:layout_gravity="center_horizontal" />
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        >
+        android:layout_marginBottom="4dp"
+        android:hint="@string/email"
+        android:textColorHint="@color/grigio">
         <EditText
+            android:drawableLeft="@drawable/ic_email_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email"
             android:textColorHint="@color/black"
             android:id="@+id/register_username_ET"
             android:textColor="@color/black"
             android:inputType="textEmailAddress"/>
     </android.support.design.widget.TextInputLayout>
+
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp" >
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:hint="@string/password"
+        android:textColorHint="@color/grigio">
         <EditText
+            android:drawableLeft="@drawable/ic_password_black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password"
-            android:textColorHint="@color/black"
             android:id="@+id/register_psw_ET"
             android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:inputType="textPassword"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="60dp"
+        android:hint="@string/password"
+        android:textColorHint="@color/grigio">
+        <EditText
+            android:drawableLeft="@drawable/ic_password_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/register_psw_conferma_ET"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
             android:inputType="textPassword"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -47,9 +80,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register"
-        android:textColor="@color/black"
-        android:background="@color/zxing_possible_result_points"
-        android:id="@+id/register_register_btn"/>
+        android:textColor="@color/white"
+        android:background="@color/blu"
+        android:id="@+id/register_register_btn" />
 
     <TextView
         android:layout_width="match_parent"
@@ -60,6 +93,10 @@
         android:gravity="center_horizontal"
         android:textSize="16dip"
         android:layout_margin="10dp" />
+
+</LinearLayout>
+
+
 
 
 </LinearLayout>
