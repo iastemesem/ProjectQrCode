@@ -34,7 +34,8 @@
             android:layout_height="wrap_content"
             android:textColorHint="@color/white"
             android:inputType="textEmailAddress"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:text="asd@g.comx"
             android:id="@+id/login_username_ET" />
     </android.support.design.widget.TextInputLayout>
 
@@ -49,7 +50,8 @@
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/white"
                 android:inputType="textPassword"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
+                android:text="asd@g.comdd"
                 android:id="@+id/login_psw_ET"/>
         </android.support.design.widget.TextInputLayout>
 
@@ -57,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:background="@color/giallo"
         android:id="@+id/login_login_btn"
         android:layout_marginBottom="10dp"
@@ -70,7 +72,7 @@
         android:textColor="@color/white"
         android:id="@+id/login_psw_dimenticata_btn"
         android:textAllCaps="false"
-        android:background="@color/zxing_transparent"
+        android:background="@android:color/transparent"
         android:textSize="15dp"
         android:textStyle="normal"
         android:layout_marginBottom="20dp"/>

@@ -13,15 +13,14 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+
 
 /**
  * Created by Gianfranco on 22/03/2017.
  */
 
-public class FragmentBtnCamera extends android.support.v4.app.Fragment implements View.OnClickListener {
-    private final String URL = "url";
+public class FragmentBtnCamera extends android.support.v4.app.Fragment    {
+  /*  private final String URL = "url";
 
     public FragmentBtnCamera() {
     }
@@ -35,15 +34,25 @@ public class FragmentBtnCamera extends android.support.v4.app.Fragment implement
         View v = inflater.inflate(R.layout.fragment_for_camera, container, false);
         camera = (ImageButton) v.findViewById(R.id.fragment_btn_camera_btn);
         camera.setOnClickListener(this);
+
+        IntentIntegrator integrator = new IntentIntegrator((AppCompatActivity)getContext());
+        integrator.setPrompt("Scan");
+        integrator.setOrientationLocked(true);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.setOrientationLocked(true);
+        integrator.setCameraId(0);
+        integrator.setBeepEnabled(false);
+        integrator.setBarcodeImageEnabled(true);
+        integrator.forSupportFragment(FragmentBtnCamera.this).initiateScan();
         return v;
     }
 
 
     @Override
     public void onClick(View v) {
-
         IntentIntegrator integrator = new IntentIntegrator((AppCompatActivity)getContext());
         integrator.setPrompt("Scan");
+
         integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
         integrator.setOrientationLocked(false);
         integrator.setCameraId(0);
@@ -75,7 +84,7 @@ public class FragmentBtnCamera extends android.support.v4.app.Fragment implement
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
-    }
+    }*/
 
 
 }

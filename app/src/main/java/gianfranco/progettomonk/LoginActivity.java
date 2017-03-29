@@ -42,8 +42,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             login();
         }
         if (v == registerLink){
-            startActivity(new Intent(this, RegisterActivity.class));
             finish();
+            startActivity(new Intent(this, RegisterActivity.class));
+
         }
     }
 
@@ -98,8 +99,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onLoginSuccess(){
-        startActivity(new Intent(this, ScanActivity.class)); //Solo per passare dalla login allo scanner
         finish();
+        startActivity(new Intent(this, ScanActivity.class)); //Solo per passare dalla login allo scanner
+
     }
 
     @Override

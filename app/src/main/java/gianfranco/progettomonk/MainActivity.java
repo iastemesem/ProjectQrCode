@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_prova);
 
-        login = (Button) findViewById(R.id.main_login_btn);
+        /*login = (Button) findViewById(R.id.main_login_btn);
         register = (Button) findViewById(R.id.main_register_btn);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(v.getContext(), LoginActivity.class));
                 finish();
             }
-        });
+        });*/
 
 
 
