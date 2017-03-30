@@ -19,7 +19,7 @@
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/add_note"
+        android:id="@+id/scan_history"
         android:src="@drawable/ic_menu"
         app:backgroundTint="@color/giallo"
         android:layout_alignParentBottom="true"

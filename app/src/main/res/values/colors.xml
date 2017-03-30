@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6087ff</color>
+    <color name="colorPrimary">#ffe404</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ffe404</color>
     <color name="white"> #FFFFFF </color>
@@ -8,4 +8,5 @@
     <color name="blu"> #3560a4 </color>
     <color name="giallo"> #ffe404  </color>
     <color name="grigio">#646262</color>
+    <color name="grey">#286c6c6c</color>
 </resources>

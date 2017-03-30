@@ -10,4 +10,7 @@
     <string name="register_login">Sei già un membro? Accedi!</string>
     <string name="email">Email</string>
     <string name="pswDimenticata">Password dimenticata</string>
+    <string name="immagini">IMMAGINI</string>
+    <string name="video">VIDEO</string>
+    <string name="link">LINK</string>
 </resources>

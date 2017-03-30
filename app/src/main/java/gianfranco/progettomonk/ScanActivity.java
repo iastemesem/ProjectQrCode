@@ -2,10 +2,12 @@ package gianfranco.progettomonk;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 import com.google.zxing.Result;
 
@@ -19,6 +21,7 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
 
    private Toolbar toolbar;
     private ZXingScannerView viewScanner;
+    private FloatingActionButton floatingActionButton;
 
 
     @Override
@@ -29,6 +32,16 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
         toolbar = (Toolbar) findViewById(R.id.scan_toolbar);
         setSupportActionBar(toolbar);
         viewScanner = (ZXingScannerView) findViewById(R.id.scan_zxing);
+
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.scan_history);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(v.getContext(), HistoricalActivity.class));
+
+            }
+        });
 
         viewScanner.setResultHandler(this);
         viewScanner.startCamera();
