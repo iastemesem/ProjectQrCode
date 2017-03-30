@@ -1,6 +1,6 @@
 package gianfranco.progettomonk;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +41,13 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+        viewScanner.setResultHandler(this);
+        viewScanner.startCamera();
+    }
+
+    @Override
     public void handleResult(Result result) {
         Log.w("handleResult", result.getText());
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -48,8 +55,9 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
         builder.setMessage(result.getText());
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
-        
-        viewScanner.resumeCameraPreview(this);
+        Intent i = new Intent(this, WebViewActivity.class);
+        i.putExtra("URL", result.getText() );
+        alertDialog.dismiss();
+        startActivity(i);
     }
 }

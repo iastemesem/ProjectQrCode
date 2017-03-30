@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_prova);
+        setContentView(R.layout.activity_main);
 
         /*login = (Button) findViewById(R.id.main_login_btn);
         register = (Button) findViewById(R.id.main_register_btn);

@@ -2,19 +2,19 @@
 
     package="gianfranco.progettomonk">
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA"  />
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature android:name="android.hardware.camera.flash" />
 
     <application
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:hardwareAccelerated="true">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
 
         <activity android:name=".MainActivity"  android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".SplashScreen">
@@ -26,6 +26,7 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".ScanActivity" />
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".WebViewActivity"/>
 
     </application>
 

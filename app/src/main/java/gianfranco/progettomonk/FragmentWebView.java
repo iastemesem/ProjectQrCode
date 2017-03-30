@@ -34,7 +34,7 @@ public class FragmentWebView extends android.support.v4.app.Fragment {
         progressDialog.setMessage("Loading..");
         progressDialog.show();
 
-        final String shortenedUrl = getArguments().getString(URL, "http://www.google.it");
+        final String shortenedUrl = getArguments().getString(URL,"http://www.google.it");
 
 
         View v = inflater.inflate(R.layout.fragment_for_webview, container, false);
