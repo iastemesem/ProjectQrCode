@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,12 +15,17 @@ import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import gianfranco.progettomonk.R;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Gianfranco on 23/03/2017.
  */
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
+
+    public static User utenteLogin;
 
     @InjectView(R.id.login_username_ET) EditText emailTextt;
     @InjectView(R.id.login_psw_ET) EditText passwordText;
@@ -59,19 +65,43 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         progressDialog.setMessage("Login...");
         progressDialog.show();
 
-        String email = emailTextt.getText().toString();
-        String password = passwordText.getText().toString();
+        ApiInterface apiService = ApiClient.getRetrofit().create(ApiInterface.class);
+        Call<ResponseBody> call = apiService.getUser(emailTextt.getText().toString(),passwordText.getText().toString());
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                Log.d("HEADER", "onResponse: "+ response.code());
+                progressDialog.dismiss();
+                if (response.body().getStatus() != 0){
+                    emailTextt.setText("");
+                    passwordText.setText("");
+                    onLoginFailed();
+                }else {
+                    ResponseUser responseUser = response.body().getResponse();
+                    utenteLogin = new User();
+                    utenteLogin.setEmail(emailTextt.getText().toString());
+                    utenteLogin.setPsw(passwordText.getText().toString());
+                    utenteLogin.setToken(responseUser.getId());
+                    Log.d("WEEEEEEEEEEEEEEEEE", "id-->"+responseUser.getUserId());
+                    onLoginSuccess();
+                }
+            }
 
-        progressDialog.dismiss();
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(getBaseContext(), "Please check your connettivity", Toast.LENGTH_SHORT).show();
+                onLoginFailed();
+            }
+        });
+
 
         //Collegamento alle API per il login creare un nuovo thread.
-        onLoginSuccess();
 
     }
 
     private boolean validate(){
         boolean valid = true;
-
         String email, psw;
         email = emailTextt.getText().toString();
         psw = passwordText.getText().toString();
@@ -94,8 +124,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void onLoginFailed(){
-        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
         loginButton.setEnabled(true);
+        Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+
     }
 
     private void onLoginSuccess(){
