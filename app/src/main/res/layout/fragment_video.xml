@@ -4,21 +4,10 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/white">
-<LinearLayout android:layout_height="150dp"
-    android:layout_width="match_parent"
-    android:background="@color/blu"
-    android:layout_margin="20dp"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
-
-    <TextView
-        android:padding="15dp"
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/grey"
-        android:drawableLeft="@drawable/ic_calendario"
-        android:text="     30/3/2017"
-        android:textColor="@color/black"
-        android:layout_gravity="bottom"/>
+        android:layout_height="match_parent"
+        android:id="@+id/video_RV">
 
-</LinearLayout>
+    </android.support.v7.widget.RecyclerView>
     </LinearLayout>
