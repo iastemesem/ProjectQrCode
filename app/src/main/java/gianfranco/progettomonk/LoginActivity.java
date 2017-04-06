@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import gianfranco.progettomonk.R;
@@ -65,7 +67,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         progressDialog.setMessage("Login...");
         progressDialog.show();
 
-        ApiInterface apiService = ApiClient.getRetrofit().create(ApiInterface.class);
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/x-www-form-urlencoded");
+        headers.put("Accept", "application/json");
+        ApiInterface apiService = ApiClient.getInstance(headers);
         Call<ResponseBody> call = apiService.getUser(emailTextt.getText().toString(),passwordText.getText().toString());
         call.enqueue(new Callback<ResponseBody>() {
             @Override
@@ -82,7 +87,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     utenteLogin.setEmail(emailTextt.getText().toString());
                     utenteLogin.setPsw(passwordText.getText().toString());
                     utenteLogin.setToken(responseUser.getId());
-                    Log.d("WEEEEEEEEEEEEEEEEE", "id-->"+responseUser.getUserId());
+                    Log.d("Login Activity", "id-->"+responseUser.getUserId());
                     onLoginSuccess();
                 }
             }

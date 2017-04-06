@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import retrofit2.Call;
@@ -71,7 +73,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         progressDialog.setMessage("Creating Account ...");
         progressDialog.show();
 
-        ApiInterface apiService = ApiClient.getRetrofit().create(ApiInterface.class);
+        HashMap<String, String> headers = new HashMap<>();
+        headers.put("Content-Type", "application/x-www-form-urlencoded");
+        headers.put("Accept", "application/json");
+        ApiInterface apiService = ApiClient.getInstance(headers);
         Call<ResponseBody> call = apiService.insertUser(emailText.getText().toString(),pswText.getText().toString());
         call.enqueue(new Callback<ResponseBody>() {
             @Override

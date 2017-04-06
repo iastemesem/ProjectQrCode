@@ -11,22 +11,19 @@ import retrofit2.http.POST;
  */
 
 public  interface ApiInterface {
-    @Headers({
-            "Content-Type: application/x-www-form-urlencoded",
-            "Accept: application/json"
-    })
     @FormUrlEncoded
     @POST("api/Accounts/signUp")
     Call<ResponseBody> insertUser(@Field("email") String email, @Field("password")String password);
 
 
-    @Headers({
-           "Accept: application/json"
-    })
     @FormUrlEncoded
-    @POST("api/Accounts/authenticate?")
+    @POST("api/Accounts/authenticate")
     Call<ResponseBody> getUser(@Field("email") String email, @Field("password") String password);
 
+
+    @FormUrlEncoded
+    @POST("api/QRCodes/add?")
+    Call<ResponseBody> insertUrl(@Field("date") String date, @Field("qrCodeData") String qrCodeData, @Field("qrCodeType") String qrCodeType);
 
 
 }
